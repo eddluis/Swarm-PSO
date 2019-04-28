@@ -139,3 +139,44 @@ class PSO():
 
 if __name__ == "__PSO__":
     main()
+
+
+# --- Funcoes e Parametros
+
+# Funcao a ser minimizada (Sphere)
+def function1(x):
+    y = 0
+    for i in range(len(x)):
+        y += x[i] ** 2
+    return y
+
+# Funcao a ser minimizada (Rastrigin)
+def rastrigin(d):
+    sum_i = np.sum([x**2 - 10*np.cos(2 * np.pi * x) for x in d])
+    return 10 * len(d) + sum_i
+
+def rastriginFn(d):
+    def fn(*args):
+        sum_i = sum([args[i]**2 - 10*np.cos(2 * np.pi * args[i]) for i in range(len(args))])
+        return 10 * d + sum_i
+    return fn
+
+# Funcao a ser minimizada (Rosenbrock)
+def rosenbrock(d):
+    x = d[0]
+    y = d[1]
+    a = 1 - x
+    b = y - x*x
+    return a*a + b*b*100
+
+
+# parametros ajustaveis
+n_dimensions = 30
+n_particles = 30
+iterations = 30000
+# posicao de inicio aleatoria em todas as coordenadas
+initial_pos = [random.random()] * n_dimensions
+
+# --- Chamada de inicio
+PSO(rosenbrock, initial_pos, n_particles, iterations)
+
