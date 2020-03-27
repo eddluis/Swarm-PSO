@@ -1,13 +1,6 @@
 # -------------------------------------------------------------------------- #
-
-# Prática 1 - Implementação de PSO baseado em artigo escrito por Bratton(2007)
-# Aluno: Eduardo Luís Anselmo Batista
-# Disciplina: Computação Natural
-# Professor: Carmelo
-# Engenharia da Computação - POLI-UPE
-
+# Implementação de PSO baseado em artigo escrito por Bratton(2007)
 # -------------------------------------------------------------------------- #
-
 
 import random
 import numpy as np
